@@ -6,8 +6,8 @@ export interface DbGame {
   platform: string;
   region: string;
   price: string;
-  discount: number;
-  cashback: string;
+  discount: number | undefined;
+  cashback: number | undefined;
   wishlistCount: number;
 }
 
@@ -19,8 +19,8 @@ export class Game {
   platform: string;
   region: string;
   price: number;
-  discount: number;
-  cashback: number;
+  discount: number | undefined;
+  cashback: number | undefined;
   wishlistCount: number;
 
   public constructor(
@@ -31,8 +31,8 @@ export class Game {
     platform: string,
     region: string,
     price: number,
-    discount: number,
-    cashback: number,
+    discount: number | undefined,
+    cashback: number | undefined,
     wishlistCount: number,
   ) {
     this.id = id;
@@ -57,7 +57,7 @@ export class Game {
       dbGame.region,
       Number(dbGame.price),
       dbGame.discount,
-      Number(dbGame.cashback),
+      dbGame.cashback,
       dbGame.wishlistCount,
     );
   }
