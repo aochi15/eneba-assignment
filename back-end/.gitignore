@@ -139,6 +139,3 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
-
-# Render uses an older Node version
-.nvmrc
