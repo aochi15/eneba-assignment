@@ -44,8 +44,15 @@ export default defineConfig([
   },
   eslintConfigPrettier,
   {
+    files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
     plugins: { perfectionist },
     rules: {
+      "perfectionist/sort-imports": [
+        "error",
+        {
+          type: "natural",
+        },
+      ],
       "perfectionist/sort-named-imports": [
         "error",
         {

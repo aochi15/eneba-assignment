@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
-import { DbGame, Game } from "../models/Game.js";
-import dbPool from "../database/index.js";
 import { QueryConfig, QueryResult } from "pg";
+
+import dbPool from "../database/index.js";
+import { DbGame, Game } from "../models/Game.js";
 
 export async function readGames(req: Request, res: Response): Promise<void> {
   const query: QueryConfig = req.query.search
