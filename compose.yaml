@@ -1,0 +1,65 @@
+services:
+  database:
+    container_name: database
+    build:
+      context: ./database
+      args:
+        - DATABASE_VERSION=${DATABASE_VERSION:?error}
+        - DATABASE_USERNAME=${DATABASE_USERNAME:?error}
+        - DATABASE_PASSWORD=${DATABASE_PASSWORD:?error}
+        - DATABASE_NAME=${DATABASE_NAME:?error}
+    ports:
+      - ${DATABASE_PORT:?error}:${DATABASE_PORT:?error}
+    volumes:
+      - database-data:/var/lib/postgresql
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${DATABASE_USERNAME:?error} -d ${DATABASE_NAME:?error}",
+        ]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+
+  back-end:
+    container_name: back-end
+    build:
+      context: ./back-end
+      target: ${ENVIRONMENT:?error}
+      args:
+        - NODE_VERSION=${NODE_VERSION:?error}
+        - PORT=${BACK_END_PORT:?error}
+        - DATABASE_HOST_ADDRESS=${DATABASE_HOST_ADDRESS:?error}
+        - DATABASE_PORT=${DATABASE_PORT:?error}
+        - DATABASE_USERNAME=${DATABASE_USERNAME:?error}
+        - DATABASE_PASSWORD=${DATABASE_PASSWORD:?error}
+        - DATABASE_NAME=${DATABASE_NAME:?error}
+    ports:
+      - ${BACK_END_PORT:?error}:${BACK_END_PORT:?error}
+    depends_on:
+      database:
+        condition: service_healthy
+        restart: true
+
+  front-end:
+    container_name: front-end
+    build:
+      context: ./front-end
+      target: ${ENVIRONMENT:?error}
+      args:
+        - NODE_VERSION=${NODE_VERSION:?error}
+        - PORT=${FRONT_END_PORT:?error}
+        - BACK_END_HOST_ADDRESS=${BACK_END_HOST_ADDRESS:?error}
+        - BACK_END_PORT=${BACK_END_PORT:?error}
+        - BACK_END_API_PREFIX=${BACK_END_API_PREFIX:?error}
+    ports:
+      - ${FRONT_END_PORT:?error}:${FRONT_END_PORT:?error}
+    depends_on:
+      back-end:
+        condition: service_started
+        restart: true
+
+volumes:
+  database-data:
