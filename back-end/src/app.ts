@@ -10,6 +10,6 @@ const API_PREFIX: string = "api";
 
 app.use(cors());
 app.use(express.static("public"));
-app.use(`/${API_PREFIX}/games`, gameRoutes);
+app.use(`/${API_PREFIX}/list`, gameRoutes);
 app.use(notFoundRoutes);
 app.listen(port, () => console.log(`Listening on port ${port}`));

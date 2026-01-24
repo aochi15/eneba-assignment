@@ -11,7 +11,7 @@ export function SearchResultList({ searchValue }: SearchResultListProps) {
   useEffect(() => {
     setSearchResults(null);
     fetch(
-      `${API_URL}/games?${new URLSearchParams({ search: searchValue }).toString()}`,
+      `${API_URL}/list?${new URLSearchParams({ search: searchValue }).toString()}`,
     ).then((res) => {
       if (res.ok) {
         res.json().then((data: Game[]) => {
