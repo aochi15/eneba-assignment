@@ -1,0 +1,11 @@
+.DS_Store
+/node_modules/
+
+# React Router
+/.react-router/
+/build/
+
+# dotenv environment variable files
+.env
+.env.*
+!.env.example

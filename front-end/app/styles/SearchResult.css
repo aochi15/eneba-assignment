@@ -1,0 +1,74 @@
+.search-result {
+  cursor: pointer;
+  background-color: #1f0a4d;
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 1.5;
+
+  .image-container {
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 380px;
+    }
+
+    .cashback-indicator {
+      padding: 6px;
+      background-color: #63e3c2;
+      color: #1f0a4d;
+      position: absolute;
+      bottom: 30px;
+      display: flex;
+
+      svg {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  svg {
+    fill: none;
+  }
+
+  .details {
+    padding: 16px;
+
+    .name-container {
+      margin-bottom: 8px;
+    }
+
+    .region-container {
+      color: #23c299;
+      margin-bottom: 8px;
+    }
+
+    .original-price-container {
+      color: darkgray;
+      line-height: 1;
+    }
+
+    .reduction-text {
+      color: #84e916;
+    }
+
+    .actual-price-container {
+      display: flex;
+
+      span {
+        font-size: 1.25rem;
+        margin-right: 5px;
+      }
+    }
+
+    .wishlist-count-container {
+      display: flex;
+      color: darkgray;
+      margin-top: 5px;
+
+      svg {
+        margin-right: 5px;
+      }
+    }
+  }
+}
