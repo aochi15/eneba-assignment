@@ -38,6 +38,6 @@ WORKDIR /app
 CMD ["npm", "run", "start"]
 
 FROM development-env AS production-env
-COPY ./.env.production /app/
+COPY ./.env.production /app/.env.production
 
 EXPOSE $PORT

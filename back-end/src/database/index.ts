@@ -6,7 +6,8 @@ const pool = new Pool({
   user: process.env.DATABASE_USERNAME,
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_NAME,
-  ssl: true,
+  // Enable this when the backend is not hosted on Render but the database is.
+  // ssl: true,
 });
 
 export default pool;

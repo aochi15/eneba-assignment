@@ -8,7 +8,7 @@ export interface DbGame {
   price: string;
   discount: number | undefined;
   cashback: number | undefined;
-  wishlistCount: number;
+  wishlist_count: number;
 }
 
 export class Game {
@@ -58,7 +58,7 @@ export class Game {
       Number(dbGame.price),
       dbGame.discount,
       dbGame.cashback,
-      dbGame.wishlistCount,
+      dbGame.wishlist_count,
     );
   }
 }
