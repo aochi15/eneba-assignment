@@ -1,3 +1,5 @@
+[![CI](https://github.com/aochi15/eneba-assignment/actions/workflows/ci.yml/badge.svg)](https://github.com/aochi15/eneba-assignment/actions/workflows/ci.yml)
+
 # eneba-assignment
 
 ## Quick setup
