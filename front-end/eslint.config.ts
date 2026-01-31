@@ -5,7 +5,6 @@ import markdown from "@eslint/markdown";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
 import perfectionist from "eslint-plugin-perfectionist";
 import pluginReact from "eslint-plugin-react";
-import eslintPluginYml from "eslint-plugin-yml";
 import { defineConfig, globalIgnores } from "eslint/config";
 import globals from "globals";
 import tseslint from "typescript-eslint";
@@ -47,7 +46,6 @@ export default defineConfig([
     language: "css/css",
     extends: ["css/recommended"],
   },
-  eslintPluginYml.configs.recommended,
   pluginReact.configs.flat["jsx-runtime"],
   eslintConfigPrettier,
   {

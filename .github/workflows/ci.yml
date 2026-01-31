@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      back-end: ${{ steps.filter.outputs.back-end }}
+      front-end: ${{ steps.filter.outputs.front-end }}
+    steps:
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            back-end:
+              - 'back-end/**'
+            front-end:
+              - 'front-end/**'
+
+  back-end-quality-check:
+    needs: changes
+    if: ${{ needs.changes.outputs.back-end == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Back-end quality check
+        uses: ./.github/actions/back-end-quality-check-action
+
+  front-end-quality-check:
+    needs: changes
+    if: ${{ needs.changes.outputs.front-end == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Back-end quality check
+        uses: ./.github/actions/front-end-quality-check-action
