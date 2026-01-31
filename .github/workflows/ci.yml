@@ -14,8 +14,11 @@ jobs:
       back-end: ${{ steps.filter.outputs.back-end }}
       front-end: ${{ steps.filter.outputs.front-end }}
     steps:
-      - uses: actions/checkout@v6
-      - uses: dorny/paths-filter@v3
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Filter changes
+        uses: dorny/paths-filter@v3
         id: filter
         with:
           filters: |
@@ -29,6 +32,9 @@ jobs:
     if: ${{ needs.changes.outputs.back-end == 'true' }}
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
       - name: Back-end quality check
         uses: ./.github/actions/back-end-quality-check-action
 
@@ -37,5 +43,8 @@ jobs:
     if: ${{ needs.changes.outputs.front-end == 'true' }}
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
       - name: Back-end quality check
         uses: ./.github/actions/front-end-quality-check-action
