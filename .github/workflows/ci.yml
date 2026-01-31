@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   changes:
     runs-on: ubuntu-latest
@@ -37,6 +41,7 @@ jobs:
 
       - name: Back-end quality check
         uses: ./.github/actions/back-end-quality-check-action
+        working-directory: ./back-end
 
   front-end-quality-check:
     needs: changes
@@ -48,3 +53,4 @@ jobs:
 
       - name: Back-end quality check
         uses: ./.github/actions/front-end-quality-check-action
+        working-directory: ./front-end
