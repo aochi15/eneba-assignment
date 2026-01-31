@@ -31,26 +31,24 @@ jobs:
     needs: changes
     if: ${{ needs.changes.outputs.back-end == 'true' }}
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./back-end
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
 
       - name: Back-end quality check
         uses: ./.github/actions/back-end-quality-check-action
+        with:
+          working-directory: ./back-end
 
   front-end-quality-check:
     needs: changes
     if: ${{ needs.changes.outputs.front-end == 'true' }}
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./front-end
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
 
       - name: Back-end quality check
         uses: ./.github/actions/front-end-quality-check-action
+        with:
+          working-directory: ./front-end
