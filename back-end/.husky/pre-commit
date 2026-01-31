@@ -1,3 +1,4 @@
+cd ./back-end
 npm run build:check
 npm run test
 npx lint-staged

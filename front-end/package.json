@@ -8,11 +8,11 @@
     "lint:check": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "build": "react-router build",
     "build:check": "react-router typegen && tsc --noEmit",
     "start": "react-router-serve ./build/server/index.js",
-    "prepare": "husky"
+    "prepare": "cd .. && husky ./front-end/.husky"
   },
   "dependencies": {
     "@react-router/node": "7.12.0",

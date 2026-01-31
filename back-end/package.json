@@ -11,11 +11,11 @@
     "lint:check": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "build": "tsc",
     "build:check": "tsc --noEmit",
     "start": "node --env-file=.env.production dist/app.js",
-    "prepare": "husky"
+    "prepare": "cd .. && husky ./back-end/.husky"
   },
   "devDependencies": {
     "@eslint/css": "^0.14.1",
