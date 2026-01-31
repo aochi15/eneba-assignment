@@ -25,5 +25,3 @@ export async function readGames(req: Request, res: Response): Promise<void> {
     res.sendStatus(500);
   }
 }
-
-console.log("test");
