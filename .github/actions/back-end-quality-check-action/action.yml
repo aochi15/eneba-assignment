@@ -11,21 +11,28 @@ runs:
 
     - name: Install dependencies
       run: npm ci
+      shell: bash
 
     - name: Check for build errors
       run: npm run build:check
+      shell: bash
 
     - name: Run tests
       run: npm run test
+      shell: bash
 
     - name: Run linter and fix
       run: npm run lint
+      shell: bash
 
     - name: Run formatter and fix
       run: npm run format
+      shell: bash
 
     - name: Check for remaining linter errors
       run: npm run lint:check
+      shell: bash
 
     - name: Check for remaining formatting errors
       run: npm run format:check
+      shell: bash
