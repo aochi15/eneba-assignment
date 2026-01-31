@@ -4,12 +4,13 @@ import json from "@eslint/json";
 import markdown from "@eslint/markdown";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
 import perfectionist from "eslint-plugin-perfectionist";
+import eslintPluginYml from "eslint-plugin-yml";
 import { defineConfig, globalIgnores } from "eslint/config";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default defineConfig([
-  globalIgnores(["./dist/"]),
+  globalIgnores(["./dist/", "package-lock.json"]),
   {
     extends: ["js/recommended"],
     files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
@@ -20,7 +21,6 @@ export default defineConfig([
   {
     extends: ["json/recommended"],
     files: ["**/*.json"],
-    ignores: ["package-lock.json"],
     language: "json/json",
     plugins: { json },
   },
@@ -42,6 +42,7 @@ export default defineConfig([
     language: "css/css",
     plugins: { css },
   },
+  eslintPluginYml.configs.recommended,
   eslintConfigPrettier,
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],

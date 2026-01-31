@@ -4,43 +4,43 @@ header {
   padding: 20px;
   display: flex;
   align-items: center;
+}
 
-  svg {
-    fill: none;
-  }
+header svg {
+  fill: none;
+}
 
-  #search-field {
-    display: flex;
-    flex: 0 1 550px;
-    min-width: 100px;
-    border: 1px white solid;
-    margin-right: 10px;
-    padding: 0px 16px;
+#search-field {
+  display: flex;
+  flex: 0 1 550px;
+  min-width: 100px;
+  border: 1px white solid;
+  margin-right: 10px;
+  padding: 0px 16px;
+}
 
-    :not(:last-child) {
-      margin-right: 10px;
-    }
+#search-field :not(:last-child) {
+  margin-right: 10px;
+}
 
-    input:focus {
-      outline: none;
-    }
+#search-field > input:focus {
+  outline: none;
+}
 
-    #clear-search-button {
-      color: darkgray;
-      cursor: pointer;
+#clear-search-button {
+  color: darkgray;
+  cursor: pointer;
+}
 
-      &:hover {
-        color: white;
-      }
-    }
-  }
+#clear-search-button:hover {
+  color: white;
+}
 
-  .app-bar-button {
-    margin: 10px;
-    cursor: pointer;
+.app-bar-button {
+  margin: 10px;
+  cursor: pointer;
+}
 
-    &:hover {
-      color: #fad318;
-    }
-  }
+.app-bar-button:hover {
+  color: #fad318;
 }

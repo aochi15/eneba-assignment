@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* eslint-disable-next-line css/no-invalid-at-rules -- ESLint not set up for Tailwind CSS. */
 @theme {
   --font-sans:
     "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
