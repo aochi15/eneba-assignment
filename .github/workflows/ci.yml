@@ -5,10 +5,6 @@ on:
     branches:
       - main
 
-defaults:
-  run:
-    shell: bash
-
 jobs:
   changes:
     runs-on: ubuntu-latest
@@ -37,6 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
+        shell: bash
         working-directory: ./back-end
     steps:
       - name: Checkout repository
@@ -51,6 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
+        shell: bash
         working-directory: ./front-end
     steps:
       - name: Checkout repository
