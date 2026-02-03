@@ -1,7 +1,8 @@
 import { useState } from "react";
+
 import { AppBar } from "~/components/AppBar";
-import { SearchResultList } from "~/pages/SearchResultList";
 import { PageBase } from "~/components/PageBase";
+import { SearchResultList } from "~/pages/SearchResultList";
 
 export function meta() {
   return [

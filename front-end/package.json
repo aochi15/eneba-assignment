@@ -12,7 +12,7 @@
     "build": "react-router build",
     "build:check": "react-router typegen && tsc --noEmit",
     "start": "react-router-serve ./build/server/index.js",
-    "prepare": "cd .. && husky ./front-end/.husky"
+    "prepare": "cd .. && node ./front-end/.husky/install.mts"
   },
   "dependencies": {
     "@react-router/node": "7.12.0",
@@ -24,23 +24,19 @@
   },
   "devDependencies": {
     "@eslint/css": "^0.14.1",
-    "@eslint/js": "^9.39.2",
     "@eslint/json": "^0.14.0",
     "@eslint/markdown": "^7.5.1",
     "@react-router/dev": "7.12.0",
     "@tailwindcss/vite": "^4.1.13",
     "@types/node": "^22",
     "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-perfectionist": "^5.3.1",
     "eslint-plugin-react": "^7.37.5",
-    "globals": "^17.0.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "prettier": "3.8.1",
-    "tailwindcss": "^4.1.13",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.53.1",
     "vite": "^7.1.7",

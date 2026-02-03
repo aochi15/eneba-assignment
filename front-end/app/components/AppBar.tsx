@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { SERVER_URL } from "~/common/server";
+
 import type { AppBarProps } from "~/props/AppBarProps";
+
+import { SERVER_URL } from "~/common/server";
 import "~/styles/AppBar.css";
 
 export function AppBar({ onSearchSubmit }: AppBarProps) {

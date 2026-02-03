@@ -1,5 +1,6 @@
-import { SERVER_URL } from "~/common/server";
 import type { SearchResultProps } from "~/props/SearchResultProps";
+
+import { SERVER_URL } from "~/common/server";
 import "~/styles/SearchResult.css";
 
 const priceFormatter: Intl.NumberFormat = new Intl.NumberFormat("sfb", {

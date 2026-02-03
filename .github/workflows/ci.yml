@@ -5,8 +5,11 @@ on:
     branches:
       - main
 
+env:
+  HUSKY: 0
+
 jobs:
-  changes:
+  detect-subfolder-changes:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: read
@@ -16,6 +19,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Filter changes
         uses: dorny/paths-filter@v3
@@ -34,6 +39,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+        with:
+          sparse-checkout: ./back-end
 
       - name: Back-end quality check
         uses: ./.github/actions/back-end-quality-check-action
@@ -47,6 +54,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+        with:
+          sparse-checkout: ./front-end
 
       - name: Back-end quality check
         uses: ./.github/actions/front-end-quality-check-action

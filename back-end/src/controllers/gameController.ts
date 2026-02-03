@@ -4,7 +4,10 @@ import { QueryConfig, QueryResult } from "pg";
 import dbPool from "../database/index.js";
 import { DbGame, Game } from "../models/Game.js";
 
-export async function readGames(req: Request, res: Response): Promise<void> {
+export async function readGames(
+  req: Request<unknown, unknown, unknown, { search: string }>,
+  res: Response,
+): Promise<void> {
   const query: QueryConfig = req.query.search
     ? {
         text:
