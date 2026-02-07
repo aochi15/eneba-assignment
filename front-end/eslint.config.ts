@@ -22,8 +22,10 @@ export default defineConfig([
   },
   {
     files: ["**/*.{ts,tsx}"],
-    ...pluginReact.configs.flat.recommended,
-    ...pluginReact.configs.flat["jsx-runtime"],
+    extends: [
+      pluginReact.configs.flat.recommended,
+      pluginReact.configs.flat["jsx-runtime"],
+    ],
   },
   {
     files: ["**/*.json"],

@@ -11,7 +11,8 @@
     "lint:check": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "build": "tsc",
     "build:check": "tsc --noEmit",
     "start": "node --env-file=.env.production build/app.js",
@@ -24,6 +25,8 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/pg": "^8.16.0",
+    "@vitest/coverage-v8": "^4.0.18",
+    "@vitest/eslint-plugin": "^1.6.6",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-perfectionist": "^5.3.1",
@@ -32,7 +35,8 @@
     "lint-staged": "^16.2.7",
     "prettier": "3.8.0",
     "tsx": "^4.21.0",
-    "typescript-eslint": "^8.53.0"
+    "typescript-eslint": "^8.53.0",
+    "vitest": "^4.0.18"
   },
   "dependencies": {
     "cors": "^2.8.6",

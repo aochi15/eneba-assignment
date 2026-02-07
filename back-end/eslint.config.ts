@@ -1,19 +1,20 @@
 import json from "@eslint/json";
 import markdown from "@eslint/markdown";
+import vitest from "@vitest/eslint-plugin";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
 import perfectionist from "eslint-plugin-perfectionist";
 import { defineConfig, globalIgnores } from "eslint/config";
 import tseslint from "typescript-eslint";
 
 export default defineConfig([
-  globalIgnores(["./build/", "package-lock.json"]),
+  globalIgnores(["./build/", "./coverage/", "package-lock.json"]),
   {
     files: ["**/*.{ts,mts}"],
     extends: [tseslint.configs.recommendedTypeChecked],
     languageOptions: {
       parserOptions: {
         projectService: {
-          allowDefaultProject: ["*.ts", ".husky/install.mts"],
+          allowDefaultProject: ["*.ts", "tests/*.ts", ".husky/install.mts"],
         },
       },
     },
@@ -29,6 +30,11 @@ export default defineConfig([
     plugins: { markdown },
     language: "markdown/gfm",
     extends: ["markdown/recommended"],
+  },
+  {
+    files: ["**/*.test.ts"],
+    plugins: { vitest },
+    extends: [vitest.configs.recommended],
   },
   eslintConfigPrettier,
   {
