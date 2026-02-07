@@ -40,7 +40,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
-          sparse-checkout: ./back-end
+          sparse-checkout: |
+            .github
+            back-end
 
       - name: Back-end quality check
         uses: ./.github/actions/back-end-quality-check-action
@@ -55,7 +57,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
         with:
-          sparse-checkout: ./front-end
+          sparse-checkout: |
+            .github
+            front-end
 
       - name: Back-end quality check
         uses: ./.github/actions/front-end-quality-check-action
