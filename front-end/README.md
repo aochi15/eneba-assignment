@@ -45,8 +45,7 @@ npm run start
 To build and run using Docker:
 
 ```bash
-docker build --build-arg NODE_VERSION=24.13.0 --build-arg PORT=3001
- --build-arg BACK_END_HOST_ADDRESS=localhost --build-arg BACK_END_PORT=3000 --build-arg BACK_END_API_PREFIX=api -t front-end --target development-env .
+docker build --build-arg NODE_VERSION=24.13.0 --build-arg PORT=3001 --build-arg BACK_END_HOST_ADDRESS=localhost --build-arg BACK_END_PORT=3000 --build-arg BACK_END_API_PREFIX=api --build-arg BACK_END_IMAGES_PREFIX=images -t front-end --target development-env .
 
 # Run the container
 docker run --name front-end -p 3001:3001 -d front-end

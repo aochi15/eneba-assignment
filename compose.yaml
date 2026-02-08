@@ -55,6 +55,7 @@ services:
         - BACK_END_HOST_ADDRESS=${BACK_END_HOST_ADDRESS:?error}
         - BACK_END_PORT=${BACK_END_PORT:?error}
         - BACK_END_API_PREFIX=${BACK_END_API_PREFIX:?error}
+        - BACK_END_IMAGES_PREFIX=${BACK_END_IMAGES_PREFIX:?error}
     ports:
       - ${FRONT_END_PORT:?error}:${FRONT_END_PORT:?error}
     depends_on:

@@ -1,6 +1,6 @@
 import type { SearchResultProps } from "~/props/SearchResultProps";
 
-import { SERVER_URL } from "~/common/server";
+import { IMAGES_URL } from "~/common/server";
 import "~/styles/SearchResult.css";
 
 const priceFormatter: Intl.NumberFormat = new Intl.NumberFormat("sfb", {
@@ -22,7 +22,7 @@ export function SearchResult({ game }: SearchResultProps) {
       title={displayName}
     >
       <div className="image-container">
-        <img src={`${SERVER_URL}/images/games/${game.imageFileName}`} />
+        <img src={`${IMAGES_URL}/games/${game.imageFileName}`} />
         {game.cashback && (
           <div className="cashback-indicator">
             {resources.cashbackIcon}

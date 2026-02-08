@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
 import type { AppBarProps } from "~/props/AppBarProps";
 
-import { SERVER_URL } from "~/common/server";
 import "~/styles/AppBar.css";
+import { IMAGES_URL } from "~/common/server";
 
 export function AppBar({ onSearchSubmit }: AppBarProps) {
   const [searchValue, setSearchValue] = useState("");
@@ -20,13 +21,17 @@ export function AppBar({ onSearchSubmit }: AppBarProps) {
 
   return (
     <header>
-      <a style={{ marginRight: "20px", cursor: "pointer" }}>
+      <Link
+        style={{ marginRight: "20px", cursor: "pointer" }}
+        to="/"
+        reloadDocument
+      >
         <img
-          src={`${SERVER_URL}/images/branding/logo.svg`}
+          src={`${IMAGES_URL}/branding/logo.svg`}
           title="Eneba"
           style={{ minWidth: "155px" }}
         />
-      </a>
+      </Link>
       <div id="search-field">
         {resources.searchIcon}
         <input
@@ -36,26 +41,36 @@ export function AppBar({ onSearchSubmit }: AppBarProps) {
           onKeyUp={handleKeyUp}
           style={{ width: "100%", minHeight: "55px", fontWeight: 800 }}
         />
-        <button onClick={handleClickClear} id="clear-search-button">
-          {resources.clearSearchIcon}
-        </button>
+        {searchValue && (
+          <button onClick={handleClickClear} id="clear-search-button">
+            {resources.clearSearchIcon}
+          </button>
+        )}
       </div>
       <div style={{ marginRight: "auto" }} title="Settings">
         <button className="app-bar-button" style={{ display: "flex" }}>
           <img
-            src={`${SERVER_URL}/images/flags/lithuania.svg`}
+            src={`${IMAGES_URL}/flags/lithuania.svg`}
             style={{ width: "16px", marginRight: "5px" }}
           />
           <span style={{ whiteSpace: "nowrap" }}>English EU | EUR</span>
         </button>
       </div>
-      <a className="app-bar-button" title="Wishlist">
+      <a
+        className="app-bar-button"
+        title="Wishlist"
+        href="https://www.eneba.com/lt/favorites/wishlist"
+      >
         {resources.wishlistIcon}
       </a>
       <button className="app-bar-button" title="My shopping cart">
         {resources.shoppingCartIcon}
       </button>
-      <a className="app-bar-button" title="Profile">
+      <a
+        className="app-bar-button"
+        title="Profile"
+        href="https://my.eneba.com/lt/login?ref=%2Flt%2F"
+      >
         {resources.userIcon}
       </a>
     </header>
