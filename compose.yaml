@@ -5,6 +5,7 @@ services:
       context: ./database
       args:
         - DATABASE_VERSION=${DATABASE_VERSION:?error}
+        - PORT=${DATABASE_PORT:?error}
         - DATABASE_USERNAME=${DATABASE_USERNAME:?error}
         - DATABASE_PASSWORD=${DATABASE_PASSWORD:?error}
         - DATABASE_NAME=${DATABASE_NAME:?error}

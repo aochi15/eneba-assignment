@@ -1,6 +1,10 @@
 CREATE EXTENSION IF NOT EXISTS pg_trgm;
 
-ALTER DATABASE eneba_database SET pg_trgm.word_similarity_threshold = 0.3;
+DO $$
+BEGIN
+   EXECUTE 'ALTER DATABASE ' || current_database() || ' SET pg_trgm.word_similarity_threshold = 0.3';
+END
+$$;
 
 CREATE TYPE key_type AS ENUM ('EA App', 'Xbox Live', 'eShop', 'Rockstar Games Launcher', 'Steam', 'Official website', 'Steam Gift');
 
