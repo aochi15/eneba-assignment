@@ -8,7 +8,8 @@
     "lint:check": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "build": "react-router build",
     "build:check": "react-router typegen && tsc --noEmit",
     "start": "react-router-serve ./build/server/index.js",
@@ -30,6 +31,8 @@
     "@tailwindcss/vite": "^4.1.13",
     "@types/node": "^22",
     "@types/react": "^19.2.7",
+    "@vitest/coverage-v8": "^4.0.18",
+    "@vitest/eslint-plugin": "^1.6.6",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-perfectionist": "^5.3.1",
@@ -40,6 +43,7 @@
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.53.1",
     "vite": "^7.1.7",
-    "vite-tsconfig-paths": "^5.1.4"
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^4.0.18"
   }
 }

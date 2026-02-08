@@ -1,6 +1,7 @@
 import css from "@eslint/css";
 import json from "@eslint/json";
 import markdown from "@eslint/markdown";
+import vitest from "@vitest/eslint-plugin";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
 import perfectionist from "eslint-plugin-perfectionist";
 import pluginReact from "eslint-plugin-react";
@@ -8,7 +9,12 @@ import { defineConfig, globalIgnores } from "eslint/config";
 import tseslint from "typescript-eslint";
 
 export default defineConfig([
-  globalIgnores(["./build/", "./.react-router/", "package-lock.json"]),
+  globalIgnores([
+    "./build/",
+    "./.react-router/",
+    "./coverage/",
+    "package-lock.json",
+  ]),
   {
     files: ["**/*.{ts,tsx,mts}"],
     extends: [tseslint.configs.recommendedTypeChecked],
@@ -44,6 +50,11 @@ export default defineConfig([
     plugins: { css },
     language: "css/css",
     extends: ["css/recommended"],
+  },
+  {
+    files: ["**/*.test.ts"],
+    plugins: { vitest },
+    extends: [vitest.configs.recommended],
   },
   eslintConfigPrettier,
   {
